@@ -1,4 +1,4 @@
-# Unity-Rougelike-Monter-Survivors
+# Unity-Rougelike-Monster-Survivors
 A replica of the existing Vampire Survivor - a RougeLike Game, a great material for studying basics of Unity and coding.
 
 - **The game is still in development progress. I'll try to finish the game as soon as possible!**
