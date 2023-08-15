@@ -79,6 +79,14 @@ public class BulletBehaviour : MonoBehaviour
             EnemiesStats enemy = col.GetComponent<EnemiesStats>();
             enemy.TakeDmg(currentDmg); //Make sure to use currentDmg instead of weaponStats.dmg in case any damage mutipliers in the future.
             PiercingReduce();
+        }     
+        else if (col.CompareTag("Prop"))
+        {
+            if (col.gameObject.TryGetComponent(out BreakableProps breakable))
+            {
+                breakable.TakeDmg(currentDmg);
+                PiercingReduce();
+            }
         }
     }
 

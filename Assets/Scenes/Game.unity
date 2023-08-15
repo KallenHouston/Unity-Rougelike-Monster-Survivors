@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &426749019
 Transform:
   m_ObjectHideFlags: 0
@@ -384,6 +384,8 @@ GameObject:
   - component: {fileID: 1272932382}
   - component: {fileID: 1272932386}
   - component: {fileID: 1272932388}
+  - component: {fileID: 1272932389}
+  - component: {fileID: 1272932390}
   - component: {fileID: 1272932387}
   m_Layer: 0
   m_Name: Player
@@ -520,11 +522,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a513d8ec06c8602429808519b9311ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
   horizontalMove: 0
   verticalMove: 0
   direction: {x: 0, y: 0}
   lastMovementVect: {x: 0, y: 0}
+  charStats: {fileID: 11400000, guid: 69f1f1e59f3eec1409a3d2b74f0ce8ef, type: 2}
 --- !u!95 &1272932387
 Animator:
   serializedVersion: 5
@@ -558,6 +560,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219d4d6960a78f24a8109142556e1e1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1272932389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272932381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5636cbde1ffcc9b4a9e601717a66b21b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charStats: {fileID: 11400000, guid: 69f1f1e59f3eec1409a3d2b74f0ce8ef, type: 2}
+  exp: 0
+  level: 1
+  expCap: 0
+  lvRanges:
+  - startPointLvl: 1
+    endPointLvl: 3
+    expCapIncrement: 100
+  - startPointLvl: 4
+    endPointLvl: 5
+    expCapIncrement: 200
+  iframeDuration: 3
+--- !u!114 &1272932390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272932381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 043cbe5ed95b3cb48b1cde79f41483d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8460251293021618481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -573,9 +611,13 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: 0.076300144
       objectReference: {fileID: 0}
+    - target: {fileID: 5016276034008468054, guid: 55a8392aaa900f24f9a40f77ab211c61, type: 3}
+      propertyPath: drops.Array.data[0].rate
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7119394398509377014, guid: 55a8392aaa900f24f9a40f77ab211c61, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8460251293329181463, guid: 55a8392aaa900f24f9a40f77ab211c61, type: 3}
       propertyPath: m_Name
@@ -587,11 +629,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8460251293329181464, guid: 55a8392aaa900f24f9a40f77ab211c61, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.01
+      value: -3.06
       objectReference: {fileID: 0}
     - target: {fileID: 8460251293329181464, guid: 55a8392aaa900f24f9a40f77ab211c61, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.27
+      value: -1.31
       objectReference: {fileID: 0}
     - target: {fileID: 8460251293329181464, guid: 55a8392aaa900f24f9a40f77ab211c61, type: 3}
       propertyPath: m_LocalPosition.z
@@ -691,6 +733,14 @@ PrefabInstance:
       value: NaN
       objectReference: {fileID: 0}
     - target: {fileID: 8723678891615506395, guid: 219cef0e66f3fcb4a9d60a14d23939e6, type: 3}
+      propertyPath: m_TileAssetArray.Array.data[0].m_RefCount
+      value: 329
+      objectReference: {fileID: 0}
+    - target: {fileID: 8723678891615506395, guid: 219cef0e66f3fcb4a9d60a14d23939e6, type: 3}
+      propertyPath: m_TileAssetArray.Array.data[2].m_RefCount
+      value: 106
+      objectReference: {fileID: 0}
+    - target: {fileID: 8723678891615506395, guid: 219cef0e66f3fcb4a9d60a14d23939e6, type: 3}
       propertyPath: m_TileColorArray.Array.data[0].m_RefCount
       value: 0
       objectReference: {fileID: 0}
@@ -700,6 +750,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8723678891615506395, guid: 219cef0e66f3fcb4a9d60a14d23939e6, type: 3}
       propertyPath: m_TileColorArray.Array.data[2].m_RefCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8723678891615506395, guid: 219cef0e66f3fcb4a9d60a14d23939e6, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[0].m_RefCount
+      value: 329
+      objectReference: {fileID: 0}
+    - target: {fileID: 8723678891615506395, guid: 219cef0e66f3fcb4a9d60a14d23939e6, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[2].m_RefCount
+      value: 106
+      objectReference: {fileID: 0}
+    - target: {fileID: 8723678891615506395, guid: 219cef0e66f3fcb4a9d60a14d23939e6, type: 3}
+      propertyPath: m_Tiles.Array.data[238].second.m_TileIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8723678891615506395, guid: 219cef0e66f3fcb4a9d60a14d23939e6, type: 3}
+      propertyPath: m_Tiles.Array.data[240].second.m_TileIndex
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8723678891615506395, guid: 219cef0e66f3fcb4a9d60a14d23939e6, type: 3}
@@ -2501,6 +2567,14 @@ PrefabInstance:
     - target: {fileID: 8723678891615506395, guid: 219cef0e66f3fcb4a9d60a14d23939e6, type: 3}
       propertyPath: m_Tiles.Array.data[449].second.m_TileColorIndex
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8723678891615506395, guid: 219cef0e66f3fcb4a9d60a14d23939e6, type: 3}
+      propertyPath: m_Tiles.Array.data[238].second.m_TileSpriteIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8723678891615506395, guid: 219cef0e66f3fcb4a9d60a14d23939e6, type: 3}
+      propertyPath: m_Tiles.Array.data[240].second.m_TileSpriteIndex
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8723678891811490880, guid: 219cef0e66f3fcb4a9d60a14d23939e6, type: 3}
       propertyPath: m_RootOrder

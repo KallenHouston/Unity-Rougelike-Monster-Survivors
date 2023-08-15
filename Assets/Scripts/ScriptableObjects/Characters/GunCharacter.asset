@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b27ed4a3381391949b44b33595530d7a, type: 3}
-  m_Name: Bat
+  m_Script: {fileID: 11500000, guid: 2e8129f243308aa498f751daec4d51f2, type: 3}
+  m_Name: GunCharacter
   m_EditorClassIdentifier: 
-  speed: 3
-  maxHealth: 10
-  dmg: 30
+  StartWeapon: {fileID: 0}
+  maxHealth: 1000000
+  recovery: 0
+  movementSpeed: 5
+  Power: 0
+  projectileSpeed: 0

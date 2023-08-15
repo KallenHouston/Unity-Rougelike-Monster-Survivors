@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8460251293329181462}
   - component: {fileID: 2671773948609745352}
   - component: {fileID: 7119394398509377014}
+  - component: {fileID: 5016276034008468054}
   - component: {fileID: -3685076165422284554}
   m_Layer: 0
   m_Name: Bat
@@ -148,6 +149,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 557defa50d1c7304698defc87d73b0e3, type: 2}
+--- !u!114 &5016276034008468054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8460251293329181463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc4abcd634fe0ec47a2a0adaadd50a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - name: Exp_1
+    itemPrefab: {fileID: 9206705822548660310, guid: cf9b1798df59a3d4181d5ecded27a405, type: 3}
+    rate: 50
 --- !u!114 &-3685076165422284554
 MonoBehaviour:
   m_ObjectHideFlags: 0

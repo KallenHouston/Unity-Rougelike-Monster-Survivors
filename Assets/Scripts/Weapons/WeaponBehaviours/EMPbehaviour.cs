@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,7 +17,16 @@ public class EMPbehaviour : MeleeBehaviour
             EnemiesStats enemy = col.GetComponent<EnemiesStats>();
             enemy.TakeDmg(currentDmg);
 
-            markedEnemies.Add(col.gameObject);//Mark the enemy so it doesn'e take another dmg instance from this melee.
+            markedEnemies.Add(col.gameObject);//Mark the enemy so it doesn't take another dmg instance from this melee.
+        }
+        else if (col.CompareTag("Prop"))
+        {
+            if (col.gameObject.TryGetComponent(out BreakableProps breakable) && !markedEnemies.Contains(col.gameObject))
+            {
+                breakable.TakeDmg(currentDmg);
+
+                markedEnemies.Add(col.gameObject);
+            }
         }
     }
 }

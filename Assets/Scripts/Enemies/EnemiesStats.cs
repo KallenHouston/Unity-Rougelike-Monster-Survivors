@@ -30,4 +30,13 @@ public class EnemiesStats : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    
+    private void OnCollisionStay2D(Collision2D col)
+    {
+        if(col.gameObject.CompareTag("Player"))
+        {
+            PlayerStats player = col.gameObject.GetComponent<PlayerStats>();
+            player.TakeDmg(currentDmg);
+        }
+    }
 }

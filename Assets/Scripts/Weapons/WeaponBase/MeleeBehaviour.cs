@@ -33,5 +33,12 @@ public class MeleeBehaviour : MonoBehaviour
             EnemiesStats enemy = col.GetComponent<EnemiesStats>();
             enemy.TakeDmg(currentDmg);
         }
+        else if (col.CompareTag("Prop"))
+        {
+            if (col.gameObject.TryGetComponent(out BreakableProps breakable))
+            {
+                breakable.TakeDmg(currentDmg);
+            }
+        }
     }
 }
