@@ -4,14 +4,25 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    public CharScriptable charStats;  
+    private CharScriptable charStats;  
 
     //Current Stats
-    private float currentMovementSpeed;   
-    private float currentMaxHealth;     
-    private float currentRecovery;        
-    private float currentPower;          
-    private float currentProjectileSpeed; 
+    [HideInInspector]
+    public float currentMaxHealth;
+    [HideInInspector]
+    public float currentMovementSpeed;   
+    [HideInInspector]     
+    public float currentRecovery;
+    [HideInInspector]        
+    public float currentPower;
+    [HideInInspector]          
+    public float currentProjectileSpeed; 
+    [HideInInspector]          
+    public float currentMagnet; 
+
+    //Spawn Weapon
+    public List<GameObject> weaponSpawned;
+
 
     //Exp and level of player.
     [Header("Exp/Level")]
@@ -38,12 +49,19 @@ public class PlayerStats : MonoBehaviour
 
     private void Awake()
     {
+        charStats = CharSelect.getStats();
+        CharSelect.instance.DestroySingleton();
+
         // Initialize the character's current stats to their base stats.
         currentMovementSpeed = charStats.MovementSpeed;
         currentMaxHealth = charStats.MaxHealth;
         currentRecovery = charStats.Recovery;
         currentPower = charStats.power;
         currentProjectileSpeed = charStats.ProjectileSpeed;
+        currentMagnet = charStats.Magnet;
+
+        //Spawn the starting weapon.
+        SpawnWeapon(charStats.startWeapon);
     }
 
     private void Start()
@@ -62,6 +80,8 @@ public class PlayerStats : MonoBehaviour
         {
             isIframe = false;
         }
+
+        naturalRecover();
     }
 
     public void expIncrement(int amount)
@@ -120,5 +140,36 @@ public class PlayerStats : MonoBehaviour
     public void Kill()
     {
         Debug.Log("Dead");
+    }
+    
+    public void RestoringHealth(float amount)
+    {
+        if(currentMaxHealth < charStats.MaxHealth)
+        {
+            currentMaxHealth += amount;
+
+            if(currentMaxHealth > charStats.MaxHealth)
+            {
+                currentMaxHealth = charStats.MaxHealth;
+            }
+        }
+    }
+
+    private void naturalRecover()
+    {
+        if(currentMaxHealth < charStats.MaxHealth)
+        {
+            currentMaxHealth += currentRecovery * Time.deltaTime;
+        }
+    }
+
+    public void SpawnWeapon(GameObject weap)
+    {
+        // Spawn the start weapon
+        GameObject spawnedWeapon = Instantiate(weap, transform.position, Quaternion.identity);
+        spawnedWeapon.transform.SetParent(transform);
+        
+        // Add the spawned weapon to the weaponSpawned list
+        weaponSpawned.Add(spawnedWeapon);
     }
 }

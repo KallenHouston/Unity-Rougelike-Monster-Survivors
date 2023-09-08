@@ -10,6 +10,6 @@ public class RifleBehaviour : BulletBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += direction * weaponStats.WeaponSpeed * Time.deltaTime; //Set movement of bullet
+        transform.position += direction * currentSpeed * Time.deltaTime; //Set movement of bullet
     }
 }

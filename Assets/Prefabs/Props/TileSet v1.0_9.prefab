@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3995086544591401108}
   - component: {fileID: -4638527851418739788}
   - component: {fileID: -4492797703600791862}
+  - component: {fileID: -6278407516466461690}
   m_Layer: 0
   m_Name: TileSet v1.0_9
   m_TagString: Prop
@@ -125,3 +126,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+--- !u!114 &-6278407516466461690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5662825013519800214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc4abcd634fe0ec47a2a0adaadd50a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - name: Health
+    itemPrefab: {fileID: 7441121139753013701, guid: 75d697b7828ebee41b1de231bb982879, type: 3}
+    rate: 50
